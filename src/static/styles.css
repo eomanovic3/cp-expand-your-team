@@ -30,6 +30,24 @@
   --error-light: #ffebee;
   --info: #0c5460;
   --info-light: #d1ecf1;
+  --header-background: var(--primary);
+  --header-text: var(--primary-text);
+}
+
+:root[data-theme="dark"] {
+  --primary: #9fa8ff;
+  --primary-light: #bac2ff;
+  --primary-dark: #7986cb;
+  --primary-text: #171717;
+  --background: #121212;
+  --surface: #1e1e1e;
+  --text-primary: #f1f1f1;
+  --text-secondary: #b0b0b0;
+  --border: #424242;
+  --border-light: #333333;
+  --border-focus: #616161;
+  --header-background: #1f2937;
+  --header-text: #ffffff;
 }
 
 * {
@@ -54,8 +72,8 @@ header {
   text-align: center;
   padding: 12px 0;
   margin-bottom: 15px;
-  background-color: var(--primary);
-  color: var(--primary-text);
+  background-color: var(--header-background);
+  color: var(--header-text);
   border-radius: 5px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   position: relative;
@@ -289,13 +307,21 @@ section h3 {
 
 button {
   background-color: var(--primary);
-  color: white;
+  color: var(--primary-text);
   border: none;
   padding: 6px 12px;
   font-size: 0.85rem;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s;
+}
+
+input,
+textarea,
+select {
+  background-color: var(--surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
 }
 
 /* Tooltip styles */
@@ -505,7 +531,7 @@ footer {
   height: 100%; /* Make button match input height */
   min-height: 32px; /* Ensure minimum clickable area */
   background: var(--primary);
-  color: white;
+  color: var(--primary-text);
   border: none;
   border-radius: 0 20px 20px 0;
   cursor: pointer;
@@ -562,7 +588,7 @@ footer {
 .day-filter.active,
 .time-filter.active {
   background-color: var(--primary);
-  color: white;
+  color: var(--primary-text);
   border-color: var(--primary-dark);
 }
 
@@ -570,7 +596,7 @@ footer {
 .day-filter:hover,
 .time-filter:hover {
   background-color: var(--primary-light);
-  color: white;
+  color: var(--primary-text);
 }
 
 .time-filters {
@@ -617,6 +643,17 @@ footer {
   position: absolute;
   top: 10px;
   right: 15px;
+  display: flex;
+  gap: 6px;
+}
+
+#theme-toggle {
+  min-width: 36px;
+  justify-content: center;
+}
+
+#user-controls button {
+  color: var(--header-text);
 }
 
 #user-status {
