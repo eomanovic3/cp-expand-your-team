@@ -664,3 +664,25 @@ footer {
 #logout-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
+/* Social sharing buttons */
+.share-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+
+.share-button {
+  padding: 3px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.share-button:hover {
+  background-color: #eee;
+}
