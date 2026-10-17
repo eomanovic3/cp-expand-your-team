@@ -543,6 +543,15 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
+    // Build social sharing links
+    const shareText = `Check out ${name} at Mergington High School: ${details.description}`;
+    const pageUrl = window.location.href.split("#")[0];
+    const shareLinks = {
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}&quote=${encodeURIComponent(shareText)}`,
+      x: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`,
+      email: `mailto:?subject=${encodeURIComponent(name)}&body=${encodeURIComponent(shareText + "\n" + pageUrl)}`,
+    };
+
     activityCard.innerHTML = `
       ${tagHtml}
       <h4>${name}</h4>
@@ -575,6 +584,12 @@ document.addEventListener("DOMContentLoaded", () => {
             )
             .join("")}
         </ul>
+      </div>
+      <div class="share-buttons">
+        <span class="share-label">Share:</span>
+        <a class="share-button" target="_blank" rel="noopener noreferrer" href="${shareLinks.facebook}">Facebook</a>
+        <a class="share-button" target="_blank" rel="noopener noreferrer" href="${shareLinks.x}">X</a>
+        <a class="share-button" href="${shareLinks.email}">Email</a>
       </div>
       <div class="activity-card-actions">
         ${
